@@ -1,0 +1,6 @@
+gg:
+  jte:
+    development-mode: true
+spring:
+  application:
+    name: spring-security-6.4-one-time-token
