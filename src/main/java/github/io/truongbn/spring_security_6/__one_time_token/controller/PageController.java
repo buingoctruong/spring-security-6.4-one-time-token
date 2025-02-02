@@ -5,13 +5,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class PageController {
-    @GetMapping("")
+    @GetMapping()
     public String home() {
-        return "index";
+        return "home";
     }
 
-    @GetMapping("/ott/sent")
-    public String ottSent() {
-        return "sent";
+    @GetMapping("/token/one-time")
+    public String sendOneTimeToken() {
+        return "token-one-time";
     }
 }

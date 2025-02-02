@@ -13,17 +13,17 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(final HttpSecurity http) throws Exception {
         return http
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/ott/sent").permitAll()
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/token/one-time").permitAll()
                         .requestMatchers("/login/ott").permitAll().anyRequest().authenticated())
                 .formLogin(Customizer.withDefaults()).oneTimeTokenLogin(Customizer.withDefaults())
                 .build();
     }
 
     @Bean
-    InMemoryUserDetailsManager inMemoryUserDetailsManager() {
-        var tbui = User.withUsername("tbui").password("password").build();
-        return new InMemoryUserDetailsManager(tbui);
+    public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
+        final var user = User.withUsername("username").password("password").build();
+        return new InMemoryUserDetailsManager(user);
     }
 }

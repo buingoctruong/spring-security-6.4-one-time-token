@@ -24,7 +24,8 @@ public class EmailService {
     @Value("${sendgrid.api-key}")
     private String sendgridApiKey;
     public void sendEmail(final String to, final String subject, final String content) {
-        final Email from = new Email("buingoctruong1508@gmail.com");
+        // TODO: Update the from email address
+        final Email from = new Email("FromEmail");
         final Email toEmail = new Email(to);
         final Content emailContent = new Content("text/plain", content);
         final Mail mail = new Mail(from, subject, toEmail, emailContent);
